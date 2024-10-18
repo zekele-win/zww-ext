@@ -3,6 +3,6 @@
   import routes from "./routes";
 </script>
 
-<div class="md:w-1/2 mx-auto p-6">
+<div class="bg-gray-50 md:max-w-2xl mx-auto p-3">
   <Router {routes} />
 </div>

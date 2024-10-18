@@ -1,26 +1,22 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import sveltePlugin from 'eslint-plugin-svelte';
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import sveltePlugin from "eslint-plugin-svelte";
 
 export default [
   {
     rules: {
-      'no-unused-vars': 'error',
-      'no-undef': 'error'
-    }
+      "no-unused-vars": "error",
+      "no-undef": "error",
+    },
   },
 
   {
-    files: [
-      '*.{js,jsx,tsx}'
-    ]
+    files: ["*.{js,jsx,tsx}"],
   },
 
   {
     // The default patterns are ['**/node_modules/', '.git/'].
-    ignores: [
-      'dist'
-    ],
+    ignores: ["dist"],
   },
 
   {
@@ -35,7 +31,7 @@ export default [
       // The type of JavaScript source code.
       // 'module' for ECMAScript modules (ESM).
       // default: 'module' for .js and .mjs files.
-      sourceType: 'module',
+      sourceType: "module",
       // The version of ECMAScript to support.
       // May be any year (i.e., 2022) or version (i.e., 5).
       ecmaVersion: 2022,
@@ -44,5 +40,5 @@ export default [
 
   pluginJs.configs.recommended,
 
-  ...sveltePlugin.configs['flat/recommended'],
+  ...sveltePlugin.configs["flat/recommended"],
 ];
