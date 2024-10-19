@@ -36,7 +36,7 @@ async function createWallet(phrase, password) {
 }
 
 function isValidPhrase(phrase) {
-  return !ethers.Mnemonic.isValidMnemonic(phrase);
+  return ethers.Mnemonic.isValidMnemonic(phrase);
 }
 
 function generatePhrase() {
