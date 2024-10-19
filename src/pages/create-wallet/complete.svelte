@@ -10,14 +10,17 @@
   function onComplete() {
     isLoading = true;
     setTimeout(() => {
-      try {
-        walletModel.createWallet($storePhrase, $storePassword);
-        push("/home");
-      } catch {
-        alert("Something wrong.");
-      } finally {
-        isLoading = false;
-      }
+      walletModel
+        .createWallet($storePhrase, $storePassword)
+        .then(() => {
+          push("/home");
+        })
+        .catch(() => {
+          alert("Something wrong.");
+        })
+        .finally(() => {
+          isLoading = false;
+        });
     }, 1_000);
   }
 </script>
