@@ -21,9 +21,9 @@
     storePassword.set(password);
 
     if (params.wild == "create") {
-      push("/create-wallet/create-mnemonic");
+      push("/create-wallet/create-phrase");
     } else if (params.wild == "import") {
-      push("/create-wallet/import-mnemonic");
+      push("/create-wallet/import-phrase");
     }
   }
 </script>

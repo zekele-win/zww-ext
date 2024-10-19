@@ -1,14 +1,14 @@
 <script>
   import { push } from "svelte-spa-router";
-  import walletLib from "../../lib/wallet";
+  import walletModel from "../../model/wallet";
   import Navbar from "../../widgets/navbar.svelte";
-  import { mnemonic as storeMnemonic } from "./store";
+  import { phrase as storePhrase } from "./store";
 
-  const mnemonic = walletLib.generateMnemonic();
-  const words = mnemonic.split(" ");
+  const phrase = walletModel.generatePhrase();
+  const words = phrase.split(" ");
 
   function onCreate() {
-    storeMnemonic.set(mnemonic);
+    storePhrase.set(phrase);
 
     push("/create-wallet/complete");
   }
@@ -18,7 +18,7 @@
   <Navbar showBackButton="true" />
 
   <div class="zw-frame py-3">
-    <div class="flex justify-center text-3xl py-3">Create mnemonic</div>
+    <div class="flex justify-center text-3xl py-3">Create phrase</div>
 
     <div class="grid grid-cols-3 gap-4 p-3">
       {#each words as word, index}

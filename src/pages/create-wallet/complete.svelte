@@ -1,16 +1,24 @@
 <script>
   import { push } from "svelte-spa-router";
   import Navbar from "../../widgets/navbar.svelte";
-  import walletLib from "../../lib/wallet";
-  import {
-    password as storePassword,
-    mnemonic as storeMnemonic,
-  } from "./store";
+  import Loading from "../../widgets/loading.svelte";
+  import walletModel from "../../model/wallet";
+  import { password as storePassword, phrase as storePhrase } from "./store";
+
+  let isLoading = false;
 
   function onComplete() {
-    walletLib.create($storeMnemonic, $storePassword).then(() => {
-      push("/home");
-    });
+    isLoading = true;
+    setTimeout(() => {
+      try {
+        walletModel.createWallet($storePhrase, $storePassword);
+        push("/home");
+      } catch {
+        alert("Something wrong.");
+      } finally {
+        isLoading = false;
+      }
+    }, 1_000);
   }
 </script>
 
@@ -26,4 +34,6 @@
       <button class="zw-button w-1/2" on:click={onComplete}>OK</button>
     </div>
   </div>
+
+  <Loading {isLoading} />
 </div>

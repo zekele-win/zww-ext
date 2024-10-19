@@ -1,21 +1,26 @@
 <script>
   import { onMount } from "svelte";
   import { replace } from "svelte-spa-router";
-  import wallet from "../lib/wallet";
+  import walletModel from "../model/wallet";
   import Loading from "../assets/loading.svg";
   import Navbar from "../widgets/navbar.svelte";
 
   // Runs after the component is first rendered to the DOM.
   onMount(async () => {
-    if (await wallet.existed()) {
-      setTimeout(() => {
-        replace("/home");
-      }, 3_000);
-    } else {
-      setTimeout(() => {
-        replace("/create-wallet/welcome");
-      }, 3_000);
-    }
+    setTimeout(() => {
+      walletModel
+        .hasWallet()
+        .then((hasWallet) => {
+          if (hasWallet) {
+            replace("/home");
+          } else {
+            replace("/create-wallet/welcome");
+          }
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    }, 1_000);
   });
 </script>
 
