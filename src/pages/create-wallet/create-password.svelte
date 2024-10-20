@@ -21,7 +21,7 @@
     storePassword.set(password);
 
     if (params.wild == "create") {
-      push("/create-wallet/create-phrase");
+      push("/create-wallet/generate-phrase");
     } else if (params.wild == "import") {
       push("/create-wallet/import-phrase");
     }

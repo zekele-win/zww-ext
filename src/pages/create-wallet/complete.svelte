@@ -1,5 +1,5 @@
 <script>
-  import { push } from "svelte-spa-router";
+  import { replace } from "svelte-spa-router";
   import Navbar from "../../widgets/navbar.svelte";
   import Loading from "../../widgets/loading.svelte";
   import walletModel from "../../model/wallet";
@@ -13,7 +13,7 @@
       walletModel
         .createWallet($storePhrase, $storePassword)
         .then(() => {
-          push("/home");
+          replace("/home");
         })
         .catch(() => {
           alert("Something wrong.");

@@ -3,7 +3,6 @@
   import { replace } from "svelte-spa-router";
   import walletModel from "../model/wallet";
   import Loading from "../assets/loading.svg";
-  import Navbar from "../widgets/navbar.svelte";
 
   // Runs after the component is first rendered to the DOM.
   onMount(async () => {
@@ -12,7 +11,7 @@
         .hasWallet()
         .then((hasWallet) => {
           if (hasWallet) {
-            replace("/home");
+            replace('/login/home');
           } else {
             replace("/create-wallet/welcome");
           }
@@ -25,10 +24,8 @@
 </script>
 
 <div>
-  <Navbar />
-
   <div class="py-9">
-    <div class="flex justify-center py-3">This is a Web3 wallet.</div>
+    <div class="text-3xl flex justify-center">ZWW</div>
     <div class="flex justify-center py-9">
       <img class="m-2" src={Loading} width="120" height="30" alt="" />
     </div>

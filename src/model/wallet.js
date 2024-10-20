@@ -24,7 +24,7 @@ async function loadWallet(password) {
 
 async function createWallet(phrase, password) {
   // Create the wallet from the phrase.
-  const wallet = ethers.Wallet.fromPhrase(phrase);
+  wallet = ethers.Wallet.fromPhrase(phrase);
 
   // Encrypt the phrase.
   let encPhrase = cryptoLib.encrypt(phrase, password);
