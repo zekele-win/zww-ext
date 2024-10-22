@@ -7,13 +7,18 @@
 }
 
 .zw-button-primary {
-  @apply border border-spacing-1 border-gray-500 rounded-md bg-black/10 text-black hover:bg-black hover:text-white disabled:bg-gray-200 disabled:text-gray-500 p-3;
+  @apply rounded-md bg-amber-500 text-white hover:ring-1 hover:ring-amber-500 disabled:ring-0 disabled:bg-amber-500/50 disabled:text-white/50 p-2.5;
+}
+
+.zw-button-link {
+  @apply text-amber-500 underline underline-offset-4;
+
 }
 
 .zw-button {
-  @apply border border-spacing-1 border-gray-500 rounded-md bg-transparent text-black hover:bg-black hover:text-white disabled:bg-gray-200 disabled:text-gray-500 p-3;
+  @apply border border-spacing-1 border-amber-500 rounded-md bg-transparent text-black hover:ring-1 hover:ring-amber-500 disabled:ring-0 disabled:border-amber-500/50 disabled:text-black/50 p-2.5;
 }
 
 .zw-input {
-  @apply border border-spacing-1 border-gray-500 rounded-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-black p-2;
+  @apply border border-spacing-1 border-amber-500 rounded-md bg-transparent text-black focus:ring-1 focus:ring-amber-500 focus:border-transparent focus:outline-none p-2;
 }

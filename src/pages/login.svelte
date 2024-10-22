@@ -1,7 +1,9 @@
 <script>
   import { replace } from "svelte-spa-router";
   import walletModel from "../model/wallet";
+  import Navbar from "../widgets/navbar.svelte";
   import Loading from "../widgets/loading.svelte";
+  import Brand from "../assets/brand.svg";
 
   export let params = {};
 
@@ -28,8 +30,16 @@
 </script>
 
 <div>
-  <div class="py-9">
-    <div class="text-3xl flex justify-center py-3">ZWW</div>
+  <Navbar />
+
+  <div class="zw-frame h-[40rem] relative my-3 px-3 py-3">
+    <div class="flex justify-center items-center text-center text-3xl py-3">
+      Welcome back!
+    </div>
+
+    <div class="flex justify-center items-center h-[24rem]">
+      <img src={Brand} width="120" height="120" alt="" />
+    </div>
 
     <div class="w-1/2 mx-auto py-3">
       <div class="mb-2">
@@ -53,6 +63,6 @@
       </button>
     </div>
   </div>
-  
+
   <Loading {isLoading} />
 </div>

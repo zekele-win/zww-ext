@@ -2,6 +2,7 @@
   import { push } from "svelte-spa-router";
   import Navbar from "../../widgets/navbar.svelte";
   import { password as storePassword } from "./store";
+  import Brand from "../../assets/brand.svg";
 
   export let params = {};
 
@@ -29,53 +30,64 @@
 </script>
 
 <div>
-  <Navbar showBackButton=true />
+  <Navbar />
 
-  <div class="zw-frame py-3">
-    <div class="flex justify-center text-3xl py-3">Create password</div>
+  <div class="zw-frame h-[40rem] relative my-3 px-3 py-3">
+    <div class="flex justify-center items-center text-center text-3xl py-3">
+      Create password
+    </div>
+    <div class="flex justify-center items-center text-center text-md">
+      This password will unlock ZWW only on this device.
+    </div>
 
-    <div class="w-1/2 mx-auto py-3">
-      <div class="mb-2">
-        <label for="password">New password</label>
+    <div class="flex justify-center items-center h-[18rem]">
+      <img src={Brand} width="120" height="120" alt="" />
+    </div>
+
+    <div class="absolute left-0 right-0 bottom-3">
+      <div class="w-1/2 mx-auto pt-3 pb-1.5">
+        <div class="mb-2">
+          <label for="password">New password</label>
+          <button
+            class="zw-button-link float-right mb-2"
+            on:click={hideOrShowPassword}
+          >
+            {passwordElementHide ? "Show" : "Hide"}
+          </button>
+        </div>
+        <input
+          class="zw-input w-full py-2"
+          name="password"
+          type="password"
+          bind:this={passwordElement}
+          bind:value={password}
+        />
+      </div>
+
+      <div class="w-1/2 mx-auto pt-1.5 pb-3">
+        <div class="mb-2">
+          <label for="confirm-password">Confirm password</label>
+        </div>
+        <input
+          class="zw-input w-full p-2"
+          name="confirm-password"
+          type="password"
+          bind:this={confirmPasswordElement}
+          bind:value={confirmPassword}
+        />
+      </div>
+
+      <div class="w-1/2 mx-auto py-3">
         <button
-          class="float-right hover:underline hover:underline-offset-4 mb-2"
-          on:click={hideOrShowPassword}
+          class="zw-button-primary w-full"
+          disabled={!password ||
+            password.length == 0 ||
+            password !== confirmPassword}
+          on:click={onCreate}
         >
-          {passwordElementHide ? "Show" : "Hide"}
+          Create a new wallet
         </button>
       </div>
-      <input
-        class="zw-input w-full py-2"
-        name="password"
-        type="password"
-        bind:this={passwordElement}
-        bind:value={password}
-      />
-    </div>
-
-    <div class="w-1/2 mx-auto py-3">
-      <div class="mb-2">
-        <label for="confirm-password">Confirm password</label>
-      </div>
-      <input
-        class="zw-input w-full p-2"
-        name="confirm-password"
-        type="password"
-        bind:this={confirmPasswordElement}
-        bind:value={confirmPassword}
-      />
-    </div>
-
-    <div class="w-1/2 mx-auto py-3">
-      <button
-        class="zw-button-primary w-full"
-        disabled={!password ||
-          password.length == 0 ||
-          password !== confirmPassword}
-        on:click={onCreate}
-      >
-        Create a new wallet
-      </button>
     </div>
   </div>
 </div>

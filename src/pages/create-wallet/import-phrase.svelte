@@ -14,7 +14,7 @@
       alert("Invalid phrase");
       return;
     }
-    
+
     storePhrase.set(phrase);
 
     push("/create-wallet/complete");
@@ -47,19 +47,19 @@
 </script>
 
 <div>
-  <Navbar showBackButton=true />
+  <Navbar />
 
-  <div class="zw-frame py-3">
-    <div class="flex justify-center text-3xl py-3">Import phrase</div>
+  <div class="zw-frame h-[40rem] relative my-3 px-3 py-3">
+    <div class="flex justify-center text-3xl py-3">Enter your recover phrase</div>
 
-    <div class="grid grid-cols-3 gap-4 p-3">
+    <div class="grid grid-cols-3 gap-3 h-[28rem] p-3">
       {#each words as word, index}
         <div class="flex justify-center items-center">
           <div class="text-center w-1/6 me-1">
-            {index + 1}
+            {index + 1}.
           </div>
           <input
-            class="border border-spacing-1 border-gray-300 rounded-md w-5/6 p-1"
+            class="zw-input w-5/6 p-1"
             type="text"
             value={word}
             on:paste={handlePaste}
@@ -69,14 +69,20 @@
       {/each}
     </div>
 
-    <div class="w-1/2 mx-auto py-3">
-      <button
-        class="zw-button-primary w-full"
-        disabled={createButtonisDisabled}
-        on:click={onCreate}
-      >
-        Saved & Continue
-      </button>
+    <div class="absolute left-0 right-0 bottom-3">
+      <div class="flex justify-center text-center text-md">
+        Only 24-words phrase supported.
+      </div>
+
+      <div class="w-1/2 mx-auto py-3">
+        <button
+          class="zw-button-primary w-full"
+          disabled={createButtonisDisabled}
+          on:click={onCreate}
+        >
+          Saved & Continue
+        </button>
+      </div>
     </div>
   </div>
 </div>

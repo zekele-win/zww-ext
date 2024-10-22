@@ -5,8 +5,14 @@
 
 {#if isLoading}
   <div
-    class="flex items-center justify-center fixed inset-0 bg-white bg-opacity-70 z-50"
+    class="flex items-center justify-center fixed inset-0 bg-black bg-opacity-25 z-50"
   >
-    <img src={Loading} alt="..." width="120" height="30" />
+    <img
+      class="animate-spin"
+      src={Loading}
+      alt="..."
+      width="128"
+      height="128"
+    />
   </div>
 {/if}

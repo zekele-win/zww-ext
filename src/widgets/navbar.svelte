@@ -1,13 +1,8 @@
 <script>
-  import { pop } from "svelte-spa-router";
-  export let showBackButton = false;
+  import Brand from "../assets/brand.svg";
 </script>
 
-<div class="flex relative justify-center items-center pb-3">
-  {#if showBackButton}
-    <button class="absolute left-0 text-lg" on:click={() => pop()}>
-      {"< "}Back
-    </button>
-  {/if}
+<div class="flex justify-center items-center pb-1">
+  <img class="mt-2 me-1" src={Brand} width="36" height="36" alt="" />
   <div class="text-2xl">ZWW</div>
 </div>

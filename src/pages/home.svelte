@@ -10,9 +10,5 @@
     <div class="flex justify-center items-center py-3">
       {walletModel.wallet.address}
     </div>
-
-    <div class="flex justify-center items-center py-3">
-      {walletModel.wallet.address}
-    </div>
   </div>
 </div>
