@@ -9,7 +9,7 @@ const deriveKey = (password, salt) => {
 };
 
 // AES-CBC encryption function
-const encrypt = (data, password) => {
+const encryptSync = (data, password) => {
   const salt = CryptoJS.lib.WordArray.random(128 / 8).toString(
     CryptoJS.enc.Hex
   ); // Generate 16-byte salt
@@ -30,8 +30,14 @@ const encrypt = (data, password) => {
   return combinedData;
 };
 
+const encrypt = async (data, password) => {
+  return new Promise((resolve) => {
+    resolve(encryptSync(data, password));
+  });
+};
+
 // AES-CBC decryption function
-const decrypt = (combinedData, password) => {
+const decryptSync = (combinedData, password) => {
   const salt = combinedData.substring(0, 32); // Extract salt (16 bytes in hex)
   const iv = CryptoJS.enc.Hex.parse(combinedData.substring(32, 64)); // Extract IV (16 bytes in hex)
   const encData = CryptoJS.enc.Base64.parse(combinedData.substring(64)); // Extract encrypted data
@@ -45,6 +51,12 @@ const decrypt = (combinedData, password) => {
   });
 
   return decrypted.toString(CryptoJS.enc.Utf8); // Return the decrypted plaintext
+};
+
+const decrypt = async (combinedData, password) => {
+  return new Promise((resolve) => {
+    resolve(decryptSync(combinedData, password));
+  });
 };
 
 export default {

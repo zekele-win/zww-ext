@@ -21,12 +21,12 @@
         .finally(() => {
           isLoading = false;
         });
-    }, 1_000);
+    }, 0);
   }
 </script>
 
 <div>
-  <Navbar showBackButton=true />
+  <Navbar showBackButton="true" />
 
   <div class="zw-frame py-3">
     <div class="flex justify-center text-3xl py-3">

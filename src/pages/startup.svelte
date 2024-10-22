@@ -6,20 +6,15 @@
 
   // Runs after the component is first rendered to the DOM.
   onMount(async () => {
-    setTimeout(() => {
-      walletModel
-        .hasWallet()
-        .then((hasWallet) => {
-          if (hasWallet) {
-            replace('/login/home');
-          } else {
-            replace("/create-wallet/welcome");
-          }
-        })
-        .catch((err) => {
-          alert(err);
-        });
-    }, 1_000);
+    walletModel
+      .hasWallet()
+      .then((hasWallet) => {
+        if (hasWallet) replace("/login/home");
+        else replace("/create-wallet/welcome");
+      })
+      .catch((err) => {
+        alert(err);
+      });
   });
 </script>
 

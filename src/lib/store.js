@@ -19,7 +19,7 @@ async function getData(storeName, id) {
   // Get the store.
   const store = db.table(storeName);
 
-  // Get the data.
+  // Get the data from store.
   const res = await store.get(id);
   return res ? res.data : null;
 }
@@ -31,6 +31,7 @@ async function putData(storeName, id, data) {
   // Get the store.
   const store = db.table(storeName);
 
+  // Put the data to store.
   await store.put({
     id: id,
     data: data,

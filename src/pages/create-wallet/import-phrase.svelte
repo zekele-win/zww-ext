@@ -8,8 +8,7 @@
   let createButtonisDisabled = true;
 
   function onCreate() {
-    let phrase = words.join(" ");
-    console.log(phrase);
+    const phrase = words.join(" ");
 
     if (!walletModel.isValidPhrase(phrase)) {
       alert("Invalid phrase");
@@ -37,7 +36,7 @@
   }
 
   function handleInput(event, index) {
-    let inputValue = event.target.value.replace(/[^a-z]/g, "");
+    const inputValue = event.target.value.replace(/[^a-z]/g, "");
     words[index] = inputValue;
     createButtonisDisabled = !allWordsFilled();
   }

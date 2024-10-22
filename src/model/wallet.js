@@ -14,7 +14,7 @@ async function loadWallet(password) {
   const encPhrase = await storeLib.getData("wallet", 1);
 
   // Decrypt the phrase.
-  const phrase = cryptoLib.decrypt(encPhrase, password);
+  const phrase = await cryptoLib.decrypt(encPhrase, password);
 
   // Create the wallet from the phrase.
   wallet = ethers.Wallet.fromPhrase(phrase);
@@ -27,7 +27,7 @@ async function createWallet(phrase, password) {
   wallet = ethers.Wallet.fromPhrase(phrase);
 
   // Encrypt the phrase.
-  let encPhrase = cryptoLib.encrypt(phrase, password);
+  const encPhrase = await cryptoLib.encrypt(phrase, password);
 
   // Save the encrypted phrase from storeLib.
   await storeLib.putData("wallet", 1, encPhrase);
@@ -50,7 +50,7 @@ async function viewPhrase(password) {
   const encPhrase = await storeLib.getData("wallet", 1);
 
   // Decrypt the phrase.
-  const phrase = cryptoLib.decrypt(encPhrase, password);
+  const phrase = await cryptoLib.decrypt(encPhrase, password);
 
   return phrase;
 }

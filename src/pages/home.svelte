@@ -6,7 +6,13 @@
 <div>
   <Navbar />
 
-  <div class="zw-frame flex justify-center items-center">
-    {walletModel.wallet.address}
+  <div class="zw-frame">
+    <div class="flex justify-center items-center py-3">
+      {walletModel.wallet.address}
+    </div>
+
+    <div class="flex justify-center items-center py-3">
+      {walletModel.wallet.address}
+    </div>
   </div>
 </div>
