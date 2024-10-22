@@ -20,6 +20,6 @@
   });
 </script>
 
-<div class="flex justify-center items-center h-full">
+<div class="flex justify-center h-full">
   <img class="animate-bounce" src={Brand} width="120" height="120" alt="" />
 </div>

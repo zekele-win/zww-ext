@@ -29,15 +29,15 @@
   }
 </script>
 
-<div>
+<div class="flex flex-col h-full">
   <Navbar />
 
-  <div class="zw-frame h-[40rem] relative my-3 px-3 py-3">
-    <div class="flex justify-center items-center text-center text-3xl py-3">
+  <div class="zw-frame flex flex-col w-full h-full my-3 px-3 py-3">
+    <div class="flex justify-center text-center text-3xl py-3">
       Welcome back!
     </div>
 
-    <div class="flex justify-center items-center h-[24rem]">
+    <div class="flex justify-center h-full">
       <img src={Brand} width="120" height="120" alt="" />
     </div>
 

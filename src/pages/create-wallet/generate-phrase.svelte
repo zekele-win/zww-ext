@@ -24,13 +24,15 @@
   }
 </script>
 
-<div>
+<div class="flex flex-col h-full">
   <Navbar />
 
-  <div class="zw-frame h-[40rem] relative my-3 px-3 py-3">
-    <div class="flex justify-center text-3xl py-3">Save your recover phrase</div>
+  <div class="zw-frame flex flex-col w-full h-full my-3 px-3 py-3">
+    <div class="flex justify-center text-center text-3xl py-3">
+      Save your recover phrase
+    </div>
 
-    <div class="grid grid-cols-3 gap-3 h-[28rem] p-3">
+    <div class="grid grid-cols-3 gap-2 h-full p-3">
       {#each words as word, index}
         <div class="flex justify-center items-center">
           <div class="text-center w-1/6 me-1">
@@ -41,18 +43,16 @@
       {/each}
     </div>
 
-    <div class="absolute left-0 right-0 bottom-3">
-      <div class="w-1/2 mx-auto text-center py-1">
-        <button class="zw-button-link w-fit" on:click={onCopy} bind>
-          {copyButtonText}
-        </button>
-      </div>
+    <div class="w-1/2 mx-auto text-center py-1">
+      <button class="zw-button-link mx-auto" on:click={onCopy} bind>
+        {copyButtonText}
+      </button>
+    </div>
 
-      <div class="w-1/2 mx-auto py-3">
-        <button class="zw-button-primary w-full" on:click={onCreate}>
-          Saved & Continue
-        </button>
-      </div>
+    <div class="w-1/2 mx-auto py-3">
+      <button class="zw-button-primary w-full" on:click={onCreate}>
+        Saved & Continue
+      </button>
     </div>
   </div>
 </div>

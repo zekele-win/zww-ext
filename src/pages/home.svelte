@@ -7,7 +7,7 @@
   <Navbar />
 
   <div class="zw-frame">
-    <div class="flex justify-center items-center py-3">
+    <div class="flex justify-center py-3">
       {walletModel.wallet.address}
     </div>
   </div>
